@@ -1,0 +1,11 @@
+The folder contains several folders:
+
+*Simulink models--> This contains the Simulink models for the solar PV system, LV feeder network, and integrated solar and PV network[Excel sheets for profiles found in "MATLAB CODE/Profiles"
+
+*profiles and pv system --> contains graphs for profiles and PV block diagram
+
+*MATLAB CODE--> contains the files for the implemented DR programs (ToU, CPP, RTP) and it also have a profiles folder that contains all the excel files for the profiles including irradiance, temperature, Water pump, domestic loads, maize mill. These profiles are supplied to code as directories, and they are also used in the Simulink files to load profiles used in simulating the models
+
+*Extended_graphs_from_simulation--> It includes outputted graphs for all DR  programs with and without PV, folders inside this folder will be identified by the naming convention
+
+///Following the directions above will make the code and the Simulink files simple to u=navigate and use....
