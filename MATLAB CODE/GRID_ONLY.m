@@ -20,6 +20,11 @@ gen_data = [
 ];
 
 % File paths for load profiles (solar files not used in this scenario)
+%%FILE ORDER
+% Domestic loads
+% Water pump
+% Milk processing machine
+% Maize mill
 filenames = {
     'C:/Users/Baymax/Desktop/Mr.Usamah/Profiles/granular/h_pf/Domestic_loads.xlsx', ...  % Bus 1: Domestic loads
     'C:/Users/Baymax/Desktop/Mr.Usamah/Profiles/granular/h_pf/interpolated_water_pump_hpf_profile.xlsx', ...  % Bus 2: Water pump
@@ -337,3 +342,4 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 fprintf('\nHourly Log Table:\n');
 
 disp(log_table);
+
