@@ -1,5 +1,4 @@
 %% 4-Bus Power Network with Real Load Profiles + Solar PV + Grid Source + ToU Pricing + DR Scheduling + MOPSO
-% Uses correct 'ActivePower_W_' syntax; Sheet1; scales short trace to 24h; PU conv; hourly means
 % Solar: Reads irradiance/temp Excel (2000 pts), aggregates to 24h, computes P_solar using PV model
 % Peak: 100 kW (0.001 pu); Implements ToU Pricing, DR scheduling, and MOPSO for cost/emission optimization
 clear; clc; close all;
@@ -411,7 +410,6 @@ for t = 1:n_hours
     emission_grid = P_grid_MWh * E_grid;  % 952.6 kg/MWh for grid
     total_emission(t) = emission_DG + emission_grid;
     
-    % Apply scaling factor of 10,000 to cost and emission
     scaled_cost = total_cost(t) * 10000;
     scaled_emission = total_emission(t) * 10000;
     
@@ -540,7 +538,7 @@ end
 repository = repository * 10000;
 
 %% Step 6: Results Table
-fprintf('\nOptimal Solutions (Pareto Front, Scaled by 10,000):\n');
+fprintf('\nOptimal Solutions (Pareto Front');
 optimal_table = array2table(repository, 'VariableNames', {'TotalCost', 'TotalEmission'});
 disp(optimal_table);
 
@@ -729,5 +727,6 @@ fprintf('Operational Cost at Hour 12: %.2f $\n', total_cost(12));
 fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
-fprintf('\nHourly Log Table (Scaled by 10,000):\n');
+fprintf('\nHourly Log Table\n');
+
 disp(log_table);
