@@ -1,5 +1,4 @@
 %% 4-Bus Power Network with Real Load Profiles + Solar PV + Grid Source + Dynamic RTP + DR Scheduling + MOPSO
-% Uses correct 'Active power(W)' syntax; Sheet1; scales short trace to 24h; PU conv; hourly means
 % Solar: Reads irradiance/temp Excel (2000 pts), aggregates to 24h, computes P_solar using PV model
 % Peak: 100 kW (0.001 pu); Implements Dynamic RTP, DR scheduling, and MOPSO for cost/emission optimization
 clear; clc; close all;
@@ -403,10 +402,9 @@ for t = 1:n_hours
     emission_storage = P_storage_MWh * E_storage;  % 0
     emission_grid = P_grid_MWh * E_grid;  % 952.6 kg/MWh for grid (CO2, SO2, NOx)
     total_emission(t) = emission_DG + emission_storage + emission_grid;
-    
-    % Apply scaling factor of 10,000 to cost and emission
-    scaled_cost = total_cost(t) * 10000;
-    scaled_emission = total_emission(t) * 10000;
+
+    scaled_cost = total_cost(t) * 10000; %%scaling
+    scaled_emission = total_emission(t) * 10000; %%scaling
     
     % Log data to table
     log_table.Hour(t) = t;
@@ -537,7 +535,6 @@ for iter = 1:n_iterations
     [global_best_emission_history(iter), min_emission_idx] = min(p_best_emission);  % Minimum emission across particles
 end
 
-% Scale MOPSO results by 10,000 for consistency
 repository = repository * 10000;
 
 %% Step 6: Results Table
@@ -699,4 +696,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table:\n');
+
 disp(log_table);
