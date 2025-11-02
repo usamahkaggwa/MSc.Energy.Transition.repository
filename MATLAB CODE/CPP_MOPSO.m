@@ -532,7 +532,7 @@ end
 repository = repository * 10000;
 
 %% Step 6: Results Table
-fprintf('\nOptimal Solutions (Pareto Front, Scaled by 10,000):\n');
+fprintf('\nOptimal Solutions (Pareto Front):\n');
 optimal_table = array2table(repository, 'VariableNames', {'TotalCost', 'TotalEmission'});
 disp(optimal_table);
 
@@ -726,4 +726,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table \n');
+
 disp(log_table);
