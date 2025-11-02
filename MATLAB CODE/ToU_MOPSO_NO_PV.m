@@ -1,5 +1,4 @@
 %% 4-Bus Power Network with Real Load Profiles + Grid Source + ToU Pricing + DR Scheduling + MOPSO
-% Uses correct 'ActivePower_W_' syntax; Sheet1; scales short trace to 24h; PU conv; hourly means
 % Grid supplies all load with DSM; Implements ToU Pricing, DR scheduling, and MOPSO for cost/emission optimization
 clear; clc; close all;
 
@@ -20,7 +19,7 @@ gen_data = [
     1, 0.0, 1.00, -0.3, 0.3  % Grid source at Bus 1 (initially 0 pu, adjusted by load balance)
 ];
 
-%%Order of excel files for load profiles...
+%%Order of excel files for load profiles [2000 data points]...
 %% domestic loads
 %% water pump
 %% milk processing machine
@@ -624,4 +623,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table \n');
+
 disp(log_table);
