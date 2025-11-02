@@ -1,6 +1,6 @@
 %% 4-Bus Power Network with Grid-Only Supply + Dynamic RTP + DR Scheduling + MOPSO
-% Uses correct 'ActivePower_W_' syntax; Sheet1; scales short trace to 24h; PU conv; hourly means
 % Grid supplies all load with DSM; no solar PV; Implements Dynamic RTP, DR scheduling, and MOPSO for cost/emission optimization
+%%FILES USED IN THE CODE SHOULD HAVE 2000 data points [All profiles including irradiance, temp, and daily load profiles]
 clear; clc; close all;
 
 %% Step 1: System Data (per unit, base MVA=100)
@@ -426,7 +426,6 @@ for iter = 1:n_iterations
     [global_best_emission_history(iter), min_emission_idx] = min(p_best_emission);
 end
 
-% Scale MOPSO results by 10,000 for consistency
 repository = repository * 10000;
 
 %% Step 6: Results Table
@@ -571,4 +570,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table\n');
+
 disp(log_table);
