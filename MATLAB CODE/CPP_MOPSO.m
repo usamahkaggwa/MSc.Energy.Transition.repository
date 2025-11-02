@@ -12,10 +12,10 @@ solar_max_pu = solar_peak_kW / (base_MVA * 1000);  % kW to pu
 
 % Bus data: [bus_num, type(1=slack,2=PV,3=PQ), Pd_base approx, Qd_base approx, V_mag(pu), theta(deg)]
 bus_data = [
-    1, 1, 0.1,  0.06,  1.00, 0;  % Bus 1: Slack + commercial + Grid source
-    2, 2, 0.2,  0.12,  1.05, 0;  % Bus 2: PV Gen + Solar + Maize mill
-    3, 3, 0.8,  0.48,  1.00, 0;  % Bus 3: Milk processing
-    4, 3, 0.5,  0.30,  1.00, 0   % Bus 4: Maize mill
+    1, 1, 0.1,  0.06,  1.00, 0;  % Bus 1
+    2, 2, 0.2,  0.12,  1.05, 0;  % Bus 2
+    3, 3, 0.8,  0.48,  1.00, 0;  % Bus 3
+    4, 3, 0.5,  0.30,  1.00, 0   % Bus 4
 ];
 
 % Generator data (base dispatchable gen at Bus 1 for grid + Bus 2 for PV base)
@@ -726,4 +726,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table \n');
+
 disp(log_table);
