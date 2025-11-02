@@ -1,5 +1,4 @@
 %% 4-Bus Power Network with Grid-Only Supply and No DSM or Solar PV
-% Uses correct 'ActivePower_W_' syntax; Sheet1; scales short trace to 24h; PU conv; hourly means
 % Grid supplies all load; no solar PV or DSM implemented
 clear; clc; close all;
 
@@ -336,4 +335,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 
 % Display logged table
 fprintf('\nHourly Log Table:\n');
+
 disp(log_table);
