@@ -8,10 +8,10 @@ base_MVA = 100;  % For PU: / (base_MVA * 1e6) to convert W/var to pu
 
 % Bus data: [bus_num, type(1=slack,2=PV,3=PQ), Pd_base approx, Qd_base approx, V_mag(pu), theta(deg)]
 bus_data = [
-    1, 1, 0.1,  0.06,  1.00, 0;  % Bus 1: Slack + Residential/Domestic + Grid source
-    2, 3, 0.2,  0.12,  1.00, 0;  % Bus 2: Water pump (no PV)
-    3, 3, 0.8,  0.48,  1.00, 0;  % Bus 3: Milk processing
-    4, 3, 0.5,  0.30,  1.00, 0   % Bus 4: Maize mill
+    1, 1, 0.1,  0.06,  1.00, 0;  % Bus 1
+    2, 3, 0.2,  0.12,  1.00, 0;  % Bus 2
+    3, 3, 0.8,  0.48,  1.00, 0;  % Bus 3
+    4, 3, 0.5,  0.30,  1.00, 0   % Bus 4
 ];
 
 % Generator data (grid at Bus 1 only)
@@ -342,4 +342,5 @@ fprintf('Pollution Emissions at Hour 12: %.2f kg\n', total_emission(12));
 fprintf('\nHourly Log Table:\n');
 
 disp(log_table);
+
 
